@@ -1,0 +1,37 @@
+<ion-content>
+  <h1>Hábitos</h1>
+  <h2>Crea y gestiona tus hábitos</h2>
+  <main>
+    <section id="resumen">
+      <div id="progreso"> ✓ {{ obtenerHabitosCompletados() }} Completados hoy </div>
+      <div id="mensaje"> 🔥 {{ obtenerRachaTotal() }} Racha total</div>
+      <div id="indicadores"> % {{ obtenerProgreso() }}Progreso semanal </div>
+    </section>
+
+    <section id="filtros">
+      <div id="todos"> Todos </div>
+      <div id="activos"> Activos </div>
+      <div id="completados"> Completados </div>
+    </section>
+
+    <section id="habitos">
+      <h2>Hábitos pendientes</h2>
+      <div class="habit" *ngFor="let habit of habits">      
+        <span class="habit-name">
+          {{ habit.name }}
+        </span>
+        <input type="checkbox" [(ngModel)]="habit.completado" (change)="cambiarEstado(habit)">
+        <button (click)="eliminarHabit(habit.id)">
+          Eliminar
+        </button>
+      </div>
+
+    </section>
+
+    <section id="boton-habito">
+      <button (click)="agregarHabit()"> + Nuevo Hábito </button>
+    </section>
+
+  </main>
+  <app-bottom-navigation></app-bottom-navigation>
+</ion-content>
