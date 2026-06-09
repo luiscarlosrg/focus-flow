@@ -26,16 +26,21 @@ export class HabitsPage implements OnInit {
   }
 
   agregarHabit() {
+    if (!this.nuevoHabit.trim()) {
+      return;
+    }
 
     const nuevoHabit: Habit = {
-      id: this.habits.length +1,
-      name: 'Nuevo Habito',
+      id: Date.now(),
+      name: this.nuevoHabit,
       completado: false,
       fechaCreacion: new Date(),
       racha: 0
     };
     this.habits.push(nuevoHabit)
     this.guardarHabitos();
+    this.nuevoHabit = '';
+    this.mostrarFormulario = false;
   }
 
   eliminarHabit(id:number) {
@@ -77,5 +82,8 @@ export class HabitsPage implements OnInit {
       (this.obtenerHabitosCompletados() / this.habits.length) *100
     );
   }
+
+  nuevoHabit = '';
+  mostrarFormulario = false;
 
 }

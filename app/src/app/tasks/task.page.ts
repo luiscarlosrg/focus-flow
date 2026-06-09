@@ -14,16 +14,7 @@ import { Task } from '../models/task.model';
 })
 export class TaskPage implements OnInit {
 
- tasks: Task[] = [
-  {
-    id: 1,
-    name: 'Estudiar para examen',
-    date: new Date(),
-    categoria: 'Universidad',
-    prioridad: 'Alta',
-    completada: false
-  }
-];
+ tasks: Task[] = []
 
   constructor() { }
 
@@ -37,16 +28,23 @@ export class TaskPage implements OnInit {
   }
 
   agregarTask(){
-    const nuevaTask: Task = {
-      id: this.tasks.length +1,
-      name: 'Nueva Tarea',
-      date: new Date(),
-      categoria: 'General',
-      prioridad: 'Media',
-      completada: false
+    if (!this.nuevoNombre.trim()) {
+      return;
     }
-    this.tasks.push(nuevaTask)
+    const nuevaTask: Task = {
+      id: Date.now(),
+      name: this.nuevoNombre,
+      date: new Date(),
+      categoria: this.nuevaCategoria || 'General',
+      prioridad: this.nuevaPrioridad || 'Media',
+      completada: false
+    };
+    this.tasks.push(nuevaTask);
     this.guardarTasks();
+    this.nuevoNombre = '';
+    this.nuevaCategoria = '';
+    this.nuevaPrioridad = '';
+    this.mostrarFormulario = false;
   }
 
   eliminarTask(id:number){
@@ -83,5 +81,10 @@ export class TaskPage implements OnInit {
       task => !task.completada
     ).length;
   }
+
+  nuevoNombre='';
+  nuevaCategoria='';
+  nuevaPrioridad='';
+  mostrarFormulario = false;
 
 }

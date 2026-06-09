@@ -14,6 +14,24 @@
       <div id="completados"> Completados </div>
     </section>
 
+    <button (click)="mostrarFormulario = true">
+      ➕ Agregar hábito</button>
+
+    <section *ngIf="mostrarFormulario">
+      <input
+        type="text"
+        placeholder="Nombre del hábito"
+        [(ngModel)]="nuevoHabit">
+
+      <button (click)="agregarHabit()">
+        Agregar hábito
+      </button>
+
+      <button (click)="mostrarFormulario = false">
+        Cancelar
+      </button>
+    </section>
+
     <section id="habitos">
       <h2>Hábitos pendientes</h2>
       <div class="habit" *ngFor="let habit of habits">      
@@ -26,10 +44,6 @@
         </button>
       </div>
 
-    </section>
-
-    <section id="boton-habito">
-      <button (click)="agregarHabit()"> + Nuevo Hábito </button>
     </section>
 
   </main>
