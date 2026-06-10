@@ -18,10 +18,25 @@ export class HomePage implements OnInit {
 
   habits: Habit[] = [];
   tasks: Task[] = [];
+  userName: string = 'Usuario';
 
   ngOnInit() {
     this.cargarHabitos();
     this.cargarTasks();
+    this.cargarUsuario();
+  }
+
+  cargarUsuario() {
+    const userStr = localStorage.getItem('currentUser');
+    if (userStr) {
+      try {
+        const user = JSON.parse(userStr);
+        // Extract first name or full name
+        this.userName = user.name ? user.name.split(' ')[0] : 'Usuario';
+      } catch (e) {
+        this.userName = 'Usuario';
+      }
+    }
   }
 
   cargarHabitos() {

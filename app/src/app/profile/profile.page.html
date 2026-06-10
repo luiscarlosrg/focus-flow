@@ -12,8 +12,8 @@
       <img src="assets/images/profile.jpg" alt="Foto de perfil">
 
       <div class="info">
-        <span class="nombre">Juan Naranjo</span>
-        <span class="email">juan@email.com</span>
+        <span class="nombre">{{ userName }}</span>
+        <span class="email">{{ userEmail }}</span>
 
         <button type="button">
           Editar perfil
@@ -33,7 +33,7 @@
 
         <div class="contenido">
           <span class="titulo">Correo electrónico</span>
-          <span class="valor">juan@email.com</span>
+          <span class="valor">{{ userEmail }}</span>
         </div>
 
         <span class="flecha">></span>
@@ -44,7 +44,7 @@
 
         <div class="contenido">
           <span class="titulo">Nombre completo</span>
-          <span class="valor">Juan David Naranjo</span>
+          <span class="valor">{{ userName }}</span>
         </div>
 
         <span class="flecha">></span>
@@ -98,7 +98,7 @@
         <span class="flecha">></span>
       </div>
 
-      <div class="caja">
+      <div class="caja" (click)="cerrarSesion()" style="cursor: pointer;">
         <span class="imagen">🚪</span>
 
         <div class="contenido">

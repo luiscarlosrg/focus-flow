@@ -1,0 +1,77 @@
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="login-container">
+
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <div class="logo-wrapper">
+        <img class="logo-img" src="assets/img/FocusFlow.png" alt="Focus Flow Logo" />
+      </div>
+    </div>
+
+    <!-- Auth Card -->
+    <div class="auth-card">
+
+      <!-- Feedback Alerts -->
+      <div class="alert error-alert animate-fade-in" *ngIf="errorMessage">
+        <span class="alert-icon">⚠️</span>
+        <span class="alert-message">{{ errorMessage }}</span>
+      </div>
+
+      <div class="alert success-alert animate-fade-in" *ngIf="successMessage">
+        <span class="alert-icon">✨</span>
+        <span class="alert-message">{{ successMessage }}</span>
+      </div>
+
+      <!-- Form -->
+      <form (ngSubmit)="onSubmit()" #authForm="ngForm" class="form-content">
+
+        <!-- Name Field (Register Mode Only) -->
+        <div class="input-group animate-slide-down" *ngIf="!isLoginMode">
+          <input id="name" type="text" name="name" placeholder="Nombre" [(ngModel)]="name" required
+            #nameInput="ngModel" />
+        </div>
+
+        <!-- Email Field -->
+        <div class="input-group">
+          <input id="email" type="email" name="email" placeholder="Correo" [(ngModel)]="email" required
+            #emailInput="ngModel" />
+        </div>
+
+        <!-- Password Field -->
+        <div class="input-group password-group">
+          <input id="password" [type]="showPassword ? 'text' : 'password'" name="password" placeholder="Contraseña"
+            [(ngModel)]="password" required #passwordInput="ngModel" />
+          <button type="button" class="password-toggle" (click)="togglePasswordVisibility()"
+            [title]="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'">
+            <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+          </button>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">
+          {{ isLoginMode ? 'INICIAR SESIÓN' : 'REGISTRARSE' }}
+        </button>
+
+        <!-- Divider -->
+        <div class="divider-text">
+          o continúa con
+        </div>
+
+        <!-- Social Login -->
+        <button type="button" class="google-btn" (click)="loginWithGoogle()">
+          GOOGLE
+        </button>
+      </form>
+
+      <!-- Toggle Mode Link -->
+      <div class="toggle-mode-container">
+        <span class="toggle-text">
+          {{ isLoginMode ? '¿No tienes cuenta? ' : '¿Ya tienes cuenta? ' }}
+          <a href="javascript:void(0)" class="toggle-link" (click)="toggleMode()">
+            {{ isLoginMode ? 'Regístrate' : 'Inicia sesión' }}
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</ion-content>

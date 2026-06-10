@@ -1,0 +1,268 @@
+.login-content {
+  --background: #0e1834;
+  background: linear-gradient(180deg, #0e1834 0%, #0b1022 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 24px 20px;
+}
+
+/* Logo Section Alignment */
+.logo-section {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+
+  .logo-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+  }
+
+  .logo-text {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+
+    .focus-text {
+      color: #ffffff;
+    }
+
+    .flow-text {
+      color: #38bdf8;
+    }
+  }
+}
+
+/* Auth Card Dark Semi-Transparent */
+.auth-card {
+  width: 100%;
+  max-width: 350px;
+  background: rgba(22, 33, 62, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 32px 24px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+/* Alerts updated for dark theme */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  border-left: 4px solid transparent;
+}
+
+.error-alert {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border-left-color: #ef4444;
+}
+
+.success-alert {
+  background: rgba(34, 197, 94, 0.15);
+  color: #86efac;
+  border-left-color: #22c55e;
+}
+
+/* Form Layout */
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-group {
+  width: 100%;
+  position: relative;
+
+  input {
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    &:focus {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: #3b82f6;
+    }
+  }
+}
+
+/* Password Input and Eye Toggle */
+.password-group {
+  input {
+    padding-right: 48px;
+  }
+
+  .password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+
+    ion-icon {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.4);
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #3b82f6;
+      }
+    }
+  }
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 6px;
+
+  &:hover {
+    background: #2563eb;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* Divider o continúa con */
+.divider-text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+  margin: 6px 0;
+  text-transform: none;
+}
+
+/* Google Outline Button */
+.google-btn {
+  width: 100%;
+  background: transparent;
+  border: 1.5px solid rgba(59, 130, 246, 0.6);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(59, 130, 246, 0.08);
+    border-color: #3b82f6;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* Toggle link "¿No tienes cuenta? Regístrate" */
+.toggle-mode-container {
+  text-align: center;
+  margin-top: 24px;
+
+  .toggle-text {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .toggle-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Keyframe animations for alert alerts */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.25s ease-out forwards;
+}
